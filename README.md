@@ -1,8 +1,6 @@
 # Robotron: 2084
 A source code retarget to the 1982 arcade game.
 
-Originally re-written by Rob Hogan aka "mwenge", re-targeted to Macroassembler {AS} by SynaMax
-
 ## Credits
 * Programmed by Eugene Jarvis and Larry Demar
 * Original source code rewrite by mwenge https://github.com/mwenge/robotron
@@ -13,7 +11,7 @@ Originally re-written by Rob Hogan aka "mwenge", re-targeted to Macroassembler {
 
 ## Build instructions
 
-Place all the files in the repository alongside with Macroassembler {AS}'s asl, pbind, and p2bin executables.
+First, place all the files in the repository alongside with Macroassembler {AS}'s asl, pbind, and p2bin executables.
 
 ### Batch files
 
@@ -91,3 +89,9 @@ A Pause Mod has been added for the Tie-Die ROM set!  This mod is originally from
 Because the Tie-Die ROM set came out in 2015, the 2008 pause mod only works on the blue label ROM set.  To get pause functionality working on Tie-Die, the "Cross Hatch" diagnostic screen test was removed in ROM 12 to make room.
 
 To build Tie-Die with Pause, simply edit ```robomake4_tiedie.asm``` and make sure that ```PAUSEMOD``` is set to ```EQU 1```.  Then, use ```TIEDIE_BURN.BAT``` or manually type in the [terminal commands for building the Tie-Die set](#terminal-commands-tie-die).
+
+## Why four makefiles?
+
+The file ```RRX7.ASM``` introduces an "EXPLOSION DATA STRUCTURE" that features symbols that get reused over and over again.  Unfortunately, these duplicate symbols causes errors for {AS} so it was decided to split the makefile into several to avoid this.
+
+It's possible to rewrite the code so that the game can be built from one .p code file instead of four, but I want to avoid modifying the original source code as much as possible and using the four "robomake" files helps us workaround this issue.  Why try fixing something that's not broken, amirite?
