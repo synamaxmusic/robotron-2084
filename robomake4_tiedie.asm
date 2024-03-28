@@ -35,3 +35,12 @@ TIEDIE	EQU	1								;;Use this to build the 2015 tie-die version
 	INCLUDE RRCHRIS.ASM							;; fixes the enforcer explosion “reset” bug on ROM 5
 	
 	ENDIF
+	
+	
+PAUSEMOD EQU	1
+
+	IFDEF	PAUSEMOD
+	
+	INCLUDE pause_mod.asm
+	
+	ENDIF
