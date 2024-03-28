@@ -581,10 +581,14 @@ ALCK1   BSR   CMPSCR
 
 CMPSCR  PSHS  Y,X,D
         EXG   X,Y              ;MAKE X POINT AT CMOS
-        ;Commented out to match robotron.sbb
-        ;LDB   ,Y               ;TAKE AWAY PLAYERS 10 MILLIONS
-        ;ANDB  #$F
-        ;STB   ,Y
+	
+        ;Originially commented out by mwenge to match robotron.sbb, but this is needed for Tie-Die
+        IFDEF	TIEDIE
+	LDB   ,Y               ;TAKE AWAY PLAYERS 10 MILLIONS
+	ANDB  #$F
+	STB   ,Y
+	ENDIF
+	
         LDB   #4               ;4 BYTES THROUGH
 CMPSC1  JSR   RCMOSA           ;READ A BYTE
         CMPB  #4               ;FIRST TIME THROUGH??
