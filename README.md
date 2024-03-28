@@ -88,7 +88,9 @@ A Pause Mod has been added for the Tie-Die ROM set!  This mod is originally from
 
 Because the Tie-Die ROM set came out in 2015, the 2008 pause mod only works on the blue label ROM set.  To get pause functionality working on Tie-Die, the "Cross Hatch" diagnostic screen test was removed in ROM 12 to make room.
 
-To build Tie-Die with Pause, simply edit ```robomake4_tiedie.asm``` and make sure that ```PAUSEMOD``` is set to ```EQU 1```.  Then, use ```TIEDIE_BURN.BAT``` or manually type in the [terminal commands for building the Tie-Die set](#terminal-commands-tie-die).
+To build Tie-Die with Pause, simply edit ```robomake4_tiedie.asm``` and make sure to uncomment ```PAUSEMOD EQU 1``` by removing the semi-colon(```;```).  
+
+Finally, use ```TIEDIE_BURN.BAT``` or manually type in the [terminal commands for building the Tie-Die set](#terminal-commands-tie-die).
 
 ## Why four makefiles?
 
